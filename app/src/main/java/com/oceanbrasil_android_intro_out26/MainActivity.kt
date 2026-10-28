@@ -32,13 +32,5 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-
-        val btEnviar = binding.btEnviar
-        val tvResultado = binding.tvResultado
-        val etNome = binding.etNome
-
-        btEnviar.setOnClickListener {
-            tvResultado.text = etNome.text
-        }
     }
 }

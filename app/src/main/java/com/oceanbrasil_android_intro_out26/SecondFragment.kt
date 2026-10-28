@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.oceanbrasil_android_intro_out26.databinding.FragmentSecondBinding
 
 /**
@@ -31,6 +32,18 @@ class SecondFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val nomeDigitado = arguments?.getString("NOME_DIGITADO")
+
+        val cidadeDigitada = arguments?.getString("CIDADE_DIGITADA")
+
+        binding.textviewSecond.text = nomeDigitado ?: "Nenhum nome digitado"
+
+        binding.textviewThird.text = cidadeDigitada ?: "Nenhuma cidade digitada"
+        
+        Glide.with(this)
+            .load("https://p2.trrsf.com/image/fget/cf/1200/630/middle/images.terra.com/2026/10/26/784465032-b292cff7-e829-4eba-bb30-724c62cd49d2.jpg")
+            .into(binding.imageviewBackground)
 
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
